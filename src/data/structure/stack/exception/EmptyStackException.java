@@ -1,5 +1,4 @@
-package data.structure.stack;
+package data.structure.stack.exception;
 
 public class EmptyStackException extends RuntimeException {
-
 }

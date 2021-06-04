@@ -1,23 +1,28 @@
 package data.structure.stack;
 
-public class LinkedStack<T> {
+import data.structure.stack.exception.EmptyStackException;
+
+public class LinkedStack<T> implements Stackable<T> {
     private Node<T> top;
 
+    @Override
     public T pop() {
         if (this.top == null) {
             throw new EmptyStackException();
         }
         T item = this.top.value;
-        this.top = top.next;
+        this.top = this.top.next;
         return item;
     }
 
+    @Override
     public void push(T item) {
-        Node<T> newOne = new Node<>(item);
-        newOne.next = this.top;
-        this.top = newOne;
+        Node<T> newbie = new Node<>(item);
+        newbie.next = this.top;
+        this.top = newbie;
     }
 
+    @Override
     public T peek() {
         if (this.top == null) {
             throw new EmptyStackException();
@@ -25,6 +30,7 @@ public class LinkedStack<T> {
         return this.top.value;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.top == null;
     }
