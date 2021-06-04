@@ -2,6 +2,8 @@ package data.algorithm.search;
 
 import data.algorithm.search.exception.SearchFailedException;
 
+import java.util.Arrays;
+
 /**
  * Precondition
  * 탐색하고자 하는 자료구조는 인덱스로 값에 접근할 수 있어야 한다.
@@ -49,6 +51,14 @@ public class BinarySearch<T extends Comparable<T>> {
         public T value() {
             return value;
         }
+
+        @Override
+        public String toString() {
+            return "Result{" +
+                    "index=" + index +
+                    ", value=" + value +
+                    '}';
+        }
     }
 
     public static void main(String[] args) {
@@ -56,10 +66,11 @@ public class BinarySearch<T extends Comparable<T>> {
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         };
-        for (char s : alphabet) {
-            BinarySearch<Character> bs = new BinarySearch<>();
-            Result<Character> result = bs.search(alphabet, s);
-            System.out.println(result.index() + ": " + result.value());
-        }
+        Arrays.stream(alphabet)
+            .map(c -> {
+                BinarySearch<Character> bs = new BinarySearch<>();
+                return bs.search(alphabet, c);
+            })
+            .forEach(System.out::println);
     }
 }
