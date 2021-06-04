@@ -19,11 +19,11 @@ public class Factorial {
         }
         IntStream.range(1, 1 + n).forEach(x -> {
             int prev = x - 1;
-            BigInteger current = this.cache.containsKey(prev)
+            BigInteger result = this.cache.containsKey(prev)
                     ? this.cache.get(prev).multiply(BigInteger.valueOf(x))
                     : BigInteger.valueOf(x);
-            System.out.println(x + "! = " + current);
-            this.cache.put(x, current);
+            System.out.println(x + "! = " + result);
+            this.cache.put(x, result);
         });
     }
 
