@@ -1,6 +1,6 @@
 package data.structure.stack;
 
-public class Stack<T> {
+public class LinkedStack<T> {
     private Node<T> top;
 
     public T pop() {
@@ -40,7 +40,7 @@ public class Stack<T> {
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+        LinkedStack<Integer> stack = new LinkedStack<>();
         stack.push(1);
         stack.push(2);
         stack.push(3);
