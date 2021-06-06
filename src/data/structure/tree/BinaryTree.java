@@ -1,6 +1,5 @@
 package data.structure.tree;
 
-import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -19,7 +18,9 @@ public class BinaryTree<T> {
     private final Node<T> root;
 
     public BinaryTree(Node<T> root) {
-        Objects.requireNonNull(root, "Node cannot be null.");
+        if (root == null) {
+            throw new IllegalArgumentException("Node cannot be null.");
+        }
         this.root = root;
     }
 
@@ -60,7 +61,9 @@ public class BinaryTree<T> {
         Node<T> right;
 
         public Node(T value) {
-            Objects.requireNonNull(value, "Node's value cannot be null.");
+            if (value == null) {
+                throw new IllegalArgumentException("Node's value cannot be null.");
+            }
             this.value = value;
         }
 
