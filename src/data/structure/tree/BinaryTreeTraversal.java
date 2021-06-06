@@ -13,11 +13,11 @@ import java.util.function.Consumer;
  * Preorder: Parent, Left, Right (1) (2) (4) (5) (3)
  * Postorder: Left, Right, Parent (4) (5) (2) (3) (1)
  */
-public class BinaryTree<T> {
+public class BinaryTreeTraversal<T> {
 
     private final Node<T> root;
 
-    public BinaryTree(Node<T> root) {
+    public BinaryTreeTraversal(Node<T> root) {
         if (root == null) {
             throw new IllegalArgumentException("Node cannot be null.");
         }
@@ -87,7 +87,7 @@ public class BinaryTree<T> {
 
         Node<Integer> n1AsRoot = (new Node<>(1)).setLeft(n2).setRight(n3);
 
-        BinaryTree<Integer> tree = new BinaryTree<>(n1AsRoot);
+        BinaryTreeTraversal<Integer> tree = new BinaryTreeTraversal<>(n1AsRoot);
 
         System.out.println("Inorder");
         tree.inorderTraversal(tree.getRoot(), System.out::println);
